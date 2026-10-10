@@ -1,9 +1,9 @@
 {
-  "name": "asset-export-preview",
+    "name": "assetlens",
   "displayName": "Asset Export Preview",
   "description": "Preview SVG, image assets and React SVG icon components when hovering imports, exports, usages and asset paths.",
   "version": "0.1.0",
-  "publisher": "your-publisher-name",
+  "publisher": "vanesabinaj",
   "license": "MIT",
   "engines": {
     "vscode": "^1.85.0"
