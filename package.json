@@ -1,0 +1,68 @@
+{
+  "name": "asset-export-preview",
+  "displayName": "Asset Export Preview",
+  "description": "Preview SVG, image assets and React SVG icon components when hovering imports, exports, usages and asset paths.",
+  "version": "0.1.0",
+  "publisher": "your-publisher-name",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact",
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:vue",
+    "onLanguage:svelte",
+    "onLanguage:css",
+    "onLanguage:scss",
+    "onLanguage:less",
+    "onLanguage:html"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Asset Export Preview",
+      "properties": {
+        "assetExportPreview.previewSize": {
+          "type": "number",
+          "default": 64,
+          "minimum": 16,
+          "maximum": 512,
+          "description": "Size in pixels of the longest side of SVG component previews."
+        },
+        "assetExportPreview.previewColor": {
+          "type": "string",
+          "default": "",
+          "description": "Colour used for `currentColor` in SVG component previews, e.g. `#ff0000`. Leave empty to pick a colour that suits the current theme."
+        },
+        "assetExportPreview.maxImageSize": {
+          "type": "number",
+          "default": 256,
+          "minimum": 32,
+          "maximum": 1024,
+          "description": "Image files larger than this (in pixels) are scaled down in the hover."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "test": "npm run compile && node --test test/*.test.cjs",
+    "package-extension": "npm run compile && vsce package"
+  },
+  "dependencies": {
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^2.32.0"
+  }
+}
